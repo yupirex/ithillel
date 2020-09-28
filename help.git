@@ -14,5 +14,6 @@ git status
 git add [a-z]*
 git commit -m "$(date +%F_%T)"
 git branch -M master
+push -u origin master
 
 # another machine
