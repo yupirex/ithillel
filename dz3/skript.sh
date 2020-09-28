@@ -93,16 +93,16 @@ if [[ "\$( find /home/bkps/* -type d | wc -l)" -gt ${count} ]]; then
 fi
 EOF
 }
+
 #apt update
 #apt install jq wget procps -y
 #where json sets?
-Vars /home/json
+#Vars /home/json
 #Install
 #Config_mysql
 #Config_apache
-Config_bkp /home/json
+#Config_bkp /home/json
 #rm -r /tmp/{latest.tar.gz,wordpress}
 #echo "logs in /tmp/apt.log /tmp/wget.log"
 exit
 #-----=====-----=====-----=====-----=====-----=====-----=====-----=====-----=====
-
