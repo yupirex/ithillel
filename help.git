@@ -1,0 +1,12 @@
+# starting
+git config --global user.email "yupirex@gmail.com"
+git config --global user.name yupirex
+git add -A
+git commit -m "$(date +%F_%T)"
+git branch -M master
+#git checkout -b master
+git remote add origin https://github.com/yupirex/ithillel.git
+git push -u origin master
+#git status
+
+# another machine
