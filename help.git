@@ -9,4 +9,10 @@ git remote add origin https://github.com/yupirex/ithillel.git
 git push -u origin master
 #git status
 
+# second save
+git status
+git add [a-z]*
+git commit -m "$(date +%F_%T)"
+git branch -M master
+
 # another machine
