@@ -1,5 +1,5 @@
-[
-  {
+{
+  "mysite1": {
     "sitename": "mysite1.local",
     "siteroot_dir": "/var/www/html/mysite1.local",
     "bakup": {
@@ -15,7 +15,7 @@
       "name": "mydb"
     }
   },
-  {
+  "musite2": {
     "sitename": "mysite.local",
     "siteroot_dir": "/var/www/html/mysite2.local",
     "db": {
@@ -31,4 +31,4 @@
       "count": "2"
     }
   }
-]
+}

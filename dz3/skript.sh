@@ -41,7 +41,7 @@ Config_mysql(){
     mysql -u root -e "CREATE DATABASE ${name};"
     mysql -u root -e "GRANT ALL PRIVILEGES ON ${name}.* \
         TO \"${username}\"@\"localhost\" IDENTIFIED BY \"${password}\";"
-    mysql -u root -e "FLUSH PRIVILEGES;"
+#    mysql -u root -e "FLUSH PRIVILEGES;"
     sleep 1
     service mysql restart
 }
@@ -104,5 +104,10 @@ EOF
 #Config_bkp /home/json
 #rm -r /tmp/{latest.tar.gz,wordpress}
 #echo "logs in /tmp/apt.log /tmp/wget.log"
+
+Pars_json(){
+    jq 
+}
+
 exit
 #-----=====-----=====-----=====-----=====-----=====-----=====-----=====-----=====
