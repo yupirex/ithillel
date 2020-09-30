@@ -19,7 +19,7 @@
     "sitename": "mysite.local",
     "siteroot_dir": "/var/www/html/mysite2.local",
     "db": {
-      "username": "mysite1",
+      "username": "mysite2",
       "password": "strongpwd2",
       "name": "mydb"
     },
