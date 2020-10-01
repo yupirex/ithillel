@@ -21,7 +21,7 @@
     "db": {
       "username": "mysite2",
       "password": "strongpwd2",
-      "name": "mydb"
+      "name": "mydb2"
     },
     "bakup": {
       "time": [
