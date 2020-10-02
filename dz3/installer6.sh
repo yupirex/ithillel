@@ -1,16 +1,23 @@
 #!/usr/bin/env bash
 
+# Проверка установленых пакетов, создаем список пакетов необходимых для установки
+# в file1  и список установленых в file2 после грепом сверяем списки и получаем 
+# список не установленых пакетов, который отправляем в apt install. apt install 
+# не отрабатывает переменую взятую в кавычки но может масивы, shellcheck настоятельно
+# рекомендует переменные брать в кавычки
 Check_install(){
     file1="$(mktemp)" file2="$(mktemp)"
     sed "s/ /\\n/g" <<<"$*" >>"$file1"
     read -ra install_pack <<<"$*"
     apt list --installed "${install_pack[@]}" 2>/dev/null |\
         sed -n "/Listing/,$ s|/.*||p" >"$file2"
-    not_install="$(grep -vf "$file2" "$file1")"
+    read -ra not_install < <(grep -vf "$file2" "$file1")
     [[ -n "$not_install" ]] && echo "Instaling $not_install"
     rm "$file1" "$file2"
 }
 
+# Проверяем установленые пакеты и доустанавливаем, установку нужных пакетов делаем
+# в фоне как и загрузку wordpress и ждем окончания этих процессов
 Install(){
     Check_install jq wget procps
     [[ -n "$not_install" ]] && apt install -y "$not_install"
@@ -30,6 +37,7 @@ Install(){
     done
 }
 
+# Получаем из файлов json нужные переменые
 Vars(){
     username=$(jq -r '.db.username' <<<"$1")
     password=$(jq -r '.db.password' <<<"$1")
@@ -38,6 +46,7 @@ Vars(){
     siteroot_dir=$(jq -r '.siteroot_dir' <<<"$1")
 }
 
+# Настраиваемм wordpress
 Config_wp(){
     echo Config wordpress
     mkdir -p "${siteroot_dir}"
@@ -49,10 +58,11 @@ Config_wp(){
 
 }
 
+# настраиваем mysql
 Config_mysql(){
+    service mysql restart
     mysql -u"$username" -p"$password" -e"use $name" && return
     echo Config mysql-server
-    service mysql restart
     mysql -u root -e "CREATE DATABASE ${name}; \
         GRANT ALL PRIVILEGES ON ${name}.* \
         TO \"${username}\"@\"localhost\" IDENTIFIED BY \"${password}\";"
@@ -60,9 +70,9 @@ Config_mysql(){
     service mysql restart
 }
 
+# настраиваем apache2
 Config_apache(){
     echo Config apache2
-    a2dissite ./*
     service apache2 restart
     sed -ri 's/(DirectoryIndex )(.*)(index.php )/\1\3\2/' \
         /etc/apache2/mods-enabled/dir.conf
@@ -90,6 +100,7 @@ EOF
         echo -e "$(hostname -i)\\t${sitename}" >>/etc/hosts
 }
 
+# настраиваем бэкапы
 Config_bkp(){
     service cron restart
     count=$(jq -r ".bakup.count" <<<"$1")
@@ -120,22 +131,25 @@ EOF
 Read_file(){
     while read -r LINE; do
         Vars "$LINE"
-#        Config_wp
-#        Config_mysql
+        Config_wp
+        Config_mysql
         Config_apache
         Config_bkp "$LINE"
     done < <(jq -c .[] < "$1")
 }
 
 # Установка необходимых пакетов
-#apt update
-#Install
+apt update
+Install
 
+cd "/etc/apache2/sites-available" || return
+a2dissite ./*
 
 # Путь к настройкам из json файла можно передать параметром в скрипт или указать
 # абсолютный путь к json файлу. Проверяем возможность прочитать файл
 
-jfile="/home/dev/dz3/json.json"
+jfile="/home/json.json"
+#jfile="/home/ithillel/dz3/json.json"
 if [[ -r "$1" ]]; then
     Read_file "$1"
 elif [[ -r "$jfile" ]]; then
@@ -146,3 +160,5 @@ fi
 
 exit
 #-----=====-----=====-----=====-----=====-----=====-----=====-----=====-----=====
+
+
