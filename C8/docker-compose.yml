@@ -1,0 +1,34 @@
+version: "3"
+services:
+       site:
+               image: wordpress:latest
+               container_name: site
+               environment:
+                       WORDPRESS_DB_HOST: "db"
+                       WORDPRESS_DB_USER: "myuser"
+                       WORDPRESS_DB_PASSWORD: "passwd"
+                       WORDPRESS_DB_NAME: "wp"
+               ports:
+                       - "80"
+               volumes:
+                       - "wpdata:/var/www/html:rw"
+               depends_on:
+                       - db
+               networks:
+                       - mysite
+       db:
+               image: mysql:latest
+               container_name: db
+               volumes:
+                       - "dbdata:/var/lib/mysql"
+               env_file:
+                       - ./mysql.env
+               networks:
+                       - mysite
+
+networks:
+       mysite:
+
+volumes:
+       wpdata:
+       dbdata:
