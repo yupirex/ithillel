@@ -3,3 +3,7 @@ https://jsoneditoronline.org/#right=local.tuhuve&left=local.qurotu
 
 # парсер json  файлов
 https://jqplay.org/
+
+nginx
+https://www.digitalocean.com/community/tools/nginx
+https://www.digitalocean.com/community/tutorials/how-to-configure-nginx-as-a-web-server-and-reverse-proxy-for-apache-on-one-ubuntu-18-04-server-ru
