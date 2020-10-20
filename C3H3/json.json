@@ -1,0 +1,34 @@
+[
+  {
+    "sitename": "mysite1.local",
+    "siteroot_dir": "/var/www/html/mysite1.local",
+    "bakup": {
+      "time": [
+        "0 4 * * *",
+        "0 19 * * *"
+      ],
+      "count": "3"
+    },
+    "db": {
+      "username": "mysite1",
+      "password": "strongpwd",
+      "name": "mydb"
+    }
+  },
+  {
+    "sitename": "mysite.local",
+    "siteroot_dir": "/var/www/html/mysite2.local",
+    "db": {
+      "username": "mysite2",
+      "password": "strongpwd2",
+      "name": "mydb2"
+    },
+    "bakup": {
+      "time": [
+        "30 4 * * *",
+        "30 19 * * *"
+      ],
+      "count": "2"
+    }
+  }
+]
