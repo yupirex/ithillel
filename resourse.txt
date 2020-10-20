@@ -20,3 +20,8 @@ https://github.com/dylanaraps/pure-bash-bible#simpler-case-statement-to-set-vari
 #Docker
 #ctop
 https://github.com/bcicen/ctop
+
+#docker-compose - yml validator
+https://codebeautify.org/yaml-validator/cbccd63a
+#для vim
+https://yamllint.readthedocs.io/en/stable/text_editors.html
