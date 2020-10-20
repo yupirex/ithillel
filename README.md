@@ -1,3 +1,3 @@
 # ithillel
-ClassWork
-HomeWork
+C - ClassWork
+H - HomeWork
