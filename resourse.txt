@@ -10,3 +10,9 @@ https://www.digitalocean.com/community/tutorials/how-to-configure-nginx-as-a-web
 
 https://regex101.com/
 https://regexr.com/
+
+#оглавление ошибок shellcheck
+https://kritika.io/profiles/4843766012539489
+
+#bash много не документированого
+https://github.com/dylanaraps/pure-bash-bible#simpler-case-statement-to-set-variable
