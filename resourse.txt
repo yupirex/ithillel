@@ -7,3 +7,6 @@ https://jqplay.org/
 nginx
 https://www.digitalocean.com/community/tools/nginx
 https://www.digitalocean.com/community/tutorials/how-to-configure-nginx-as-a-web-server-and-reverse-proxy-for-apache-on-one-ubuntu-18-04-server-ru
+
+https://regex101.com/
+https://regexr.com/
