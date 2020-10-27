@@ -1,3 +1,8 @@
+git config merge.tool vimdiff
+
+
+
+
 # starting
 git config --global user.email "yupirex@gmail.com"
 git config --global user.name yupirex
