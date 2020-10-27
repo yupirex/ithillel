@@ -1,7 +1,7 @@
 git config merge.tool vimdiff
 
 
-
+git remote set-url origin https://username:password@github.com/USERNAME/OTHERREPOSITORY.git
 
 # starting
 git config --global user.email "yupirex@gmail.com"
