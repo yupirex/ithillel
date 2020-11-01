@@ -25,3 +25,6 @@ https://github.com/bcicen/ctop
 https://codebeautify.org/yaml-validator/cbccd63a
 #для vim
 https://yamllint.readthedocs.io/en/stable/text_editors.html
+
+№генератор разноцветной строки приглашения
+http://ezprompt.net/
