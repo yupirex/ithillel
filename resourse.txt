@@ -16,6 +16,8 @@ https://kritika.io/profiles/4843766012539489
 
 #bash много не документированого
 https://github.com/dylanaraps/pure-bash-bible#simpler-case-statement-to-set-variable
+# shellcheck
+https://github.com/koalaman/shellcheck
 
 #Docker
 #ctop
@@ -26,5 +28,5 @@ https://codebeautify.org/yaml-validator/cbccd63a
 #для vim
 https://yamllint.readthedocs.io/en/stable/text_editors.html
 
-№генератор разноцветной строки приглашения
+# генератор разноцветной строки приглашения
 http://ezprompt.net/
