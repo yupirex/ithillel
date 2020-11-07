@@ -30,3 +30,6 @@ https://yamllint.readthedocs.io/en/stable/text_editors.html
 
 # генератор разноцветной строки приглашения
 http://ezprompt.net/
+
+#play kuber
+https://labs.play-with-k8s.com/#
